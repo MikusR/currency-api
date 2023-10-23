@@ -1,0 +1,18 @@
+{
+  "name": "mikusr/currency-api",
+  "description": "Homework currency converter",
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/"
+    }
+  },
+  "authors": [
+    {
+      "name": "MikusR",
+      "email": "mikus.rakis@gmail.com"
+    }
+  ],
+  "require": {
+    "vlucas/phpdotenv": "^5.5"
+  }
+}
