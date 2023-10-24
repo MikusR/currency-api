@@ -2,6 +2,8 @@
 
 namespace App;
 
+use Carbon\Carbon;
+
 class Exchange
 {
     private string $timestamp;
@@ -27,6 +29,14 @@ class Exchange
     public function getRate(string $isoCode): float
     {
         return $this->listOfCurrency[$isoCode]->getRate();
+    }
+
+    /**
+     * @return string
+     */
+    public function getTimestamp(): string
+    {
+        return Carbon::createFromTimestamp($this->timestamp)->toDateTimeString();
     }
 
 }
