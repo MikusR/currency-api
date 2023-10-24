@@ -7,16 +7,14 @@ use Carbon\Carbon;
 class Exchange
 {
     private string $timestamp;
-    /**
-     * @var Currency[]
-     */
-    private array $listOfCurrency;
+
+    private Currencies $currencies;
 
 
-    public function __construct(string $timestamp, array $listOfCurrency)
+    public function __construct(string $timestamp, array $currencies)
     {
         $this->timestamp = $timestamp;
-        $this->listOfCurrency = $listOfCurrency;
+        $this->currencies = new Currencies($currencies);
     }
 
     public function exchange(string $from, int $amount, string $to): int
@@ -28,7 +26,7 @@ class Exchange
 
     public function getRate(string $isoCode): float
     {
-        return $this->listOfCurrency[$isoCode]->getRate();
+        return $this->currencies->get($isoCode)->getRate();
     }
 
     /**
